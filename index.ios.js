@@ -1,25 +1,26 @@
-var React = require('react-native');
-var {
-  Text,
-  View,
+import React, { Component } from 'react';
+import {
   AppRegistry,
-} = React;
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 var StopWatch = React.createClass({
   render: function () {
     return <View style={styles.container}>
-      <View style={[styles.header, this.border('yellow')]}> // Yellow
-        <View style={this.border('red')}> // Red
+      <View style={[styles.header, this.border('yellow')]}>
+        <View style={this.border('red')}>
         <Text>
         00:00:00
         </Text>
         </View>
-        <View style={this.border('green')}> // Green
+        <View style={this.border('green')}>
           {this.startStopButton()}
           {this.lapButton()}
         </View>
       </View>
-      <View style={[styles.footer, this.border('blue')]}> // Blue
+      <View style={[styles.footer, this.border('blue')]}>
         <Text>
           I am a list of laps
         </Text>
@@ -52,7 +53,7 @@ var StopWatch = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignImages: 'stretch'
+    alignItems: 'stretch'
   },
   header: { // Yellow
     flex: 1
