@@ -11,7 +11,8 @@ var formatTime = require('minutes-seconds-milliseconds');
 var StopWatch = React.createClass({
   getInitialState: function () {
     return {
-      timeElapsed: null
+      timeElapsed: null,
+      running: false
     }
   },
   render: function () {
@@ -42,7 +43,7 @@ var StopWatch = React.createClass({
       >
 
       <Text>
-        Start
+        {this.state.running ? 'Stop' : 'Start'}
       </Text>
     </TouchableHighlight>
   },
@@ -60,12 +61,18 @@ var StopWatch = React.createClass({
   },
   handleStartPress: function() {
     console.log("Start press");
+    if(this.state.running) {
+      clearInterval(this.interval);
+      this.setState({running:false});
+      return;
+    }
     var startTime = new Date();
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.setState({
-        timeElapsed: new Date() - startTime
+        timeElapsed: new Date() - startTime,
+        running: true
       });
-    }, 1000);
+    }, 30);
   },
   border: function(color) {
     return {
