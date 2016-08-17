@@ -36,10 +36,12 @@ var StopWatch = React.createClass({
     </View>
   },
   startStopButton: function () {
+    var style = this.state.running ? styles.stopButton : styles.startButton;
+
     return <TouchableHighlight
       underlayColor="gray"
       onPress={this.handleStartPress}
-      style={styles.button}
+      style={[styles.button, style]}
       >
 
       <Text>
@@ -115,6 +117,12 @@ var styles = StyleSheet.create({
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  startButton: {
+    borderColor: '#00CC00'
+  },
+  stopButton: {
+    borderColor: '#cc0000'
   }
 })
 
