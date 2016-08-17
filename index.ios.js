@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  Image,
   StyleSheet,
   Text,
   TouchableHighlight,
@@ -32,6 +33,7 @@ var StopWatch = React.createClass({
         <Text>
           I am a list of laps
         </Text>
+        <Image source={require('./assets/gradient1.png')} style={styles.backgroundImage} />
       </View>
     </View>
   },
@@ -44,18 +46,19 @@ var StopWatch = React.createClass({
       style={[styles.button, style]}
       >
 
-      <Text>
+      <Text style={styles.buttonText}>
         {this.state.running ? 'Stop' : 'Start'}
       </Text>
     </TouchableHighlight>
   },
   lapButton: function () {
+    var style = this.state.running ? styles.stopButton : styles.startButton;
     return <TouchableHighlight
       underlayColor="gray"
       onPress={this.handleStartPress}
-      style={styles.button}
+      style={[styles.button, style]}
       >
-    <Text>
+    <Text style={styles.buttonText}>
     Lap
     </Text>
     </TouchableHighlight>
@@ -78,8 +81,8 @@ var StopWatch = React.createClass({
   },
   border: function(color) {
     return {
-      borderColor: color,
-      borderWidth: 4
+      //borderColor: color,
+      //borderWidth: 4
     }
   }
 });
@@ -100,7 +103,7 @@ var styles = StyleSheet.create({
     flex: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#0000ff'
+    backgroundColor: '#40a7e3'
   },
   timerStyle: {
     fontSize: 64,
@@ -110,23 +113,33 @@ var styles = StyleSheet.create({
     flex: 3,
     flexDirection:'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#055faa'
   },
   button: {
     borderWidth: 2,
-    height: 100,
-    width: 100,
-    borderRadius: 50,
+    height: 80,
+    width: 160,
+    borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center'
   },
+  buttonText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#ffffff'
+  },
   startButton: {
-    backgroundColor: '#00CC00',
-    borderColor: '#00CC00'
+    backgroundColor: '#0088ff',
+    borderColor: '#0088ff'
   },
   stopButton: {
     backgroundColor: '#cc0000',
     borderColor: '#cc0000'
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover', // or 'stretch'
   }
 })
 
