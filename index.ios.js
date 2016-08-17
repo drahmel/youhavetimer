@@ -99,10 +99,12 @@ var styles = StyleSheet.create({
   timerWrapper: { // Red
     flex: 5,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#0000ff'
   },
   timerStyle: {
-    fontSize: 64
+    fontSize: 64,
+    color: '#ffffff'
   },
   buttonWrapper: { // Green
     flex: 3,
@@ -119,9 +121,11 @@ var styles = StyleSheet.create({
     alignItems: 'center'
   },
   startButton: {
+    backgroundColor: '#00CC00',
     borderColor: '#00CC00'
   },
   stopButton: {
+    backgroundColor: '#cc0000',
     borderColor: '#cc0000'
   }
 })
