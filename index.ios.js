@@ -34,6 +34,7 @@ var StopWatch = React.createClass({
         <Text style={styles.listText}>
           I am a list of laps
         </Text>
+        {this.fontlist()}
       </Image>
       </View>
     </View>
@@ -85,6 +86,30 @@ var StopWatch = React.createClass({
       //borderColor: color,
       //borderWidth: 4
     }
+  },
+  fontlist: function () {
+    return (
+      <View>
+        <Text style={{fontFamily: 'Cochin'}}>
+          Cochin
+        </Text>
+        <Text style={{fontFamily: 'Cochin', fontWeight: 'bold'}}>
+          Cochin bold
+        </Text>
+        <Text style={{fontFamily: 'Helvetica'}}>
+          Helvetica
+        </Text>
+        <Text style={{fontFamily: 'Helvetica', fontWeight: 'bold'}}>
+          Helvetica bold
+        </Text>
+        <Text style={{fontFamily: 'Verdana'}}>
+          Verdana
+        </Text>
+        <Text style={{fontFamily: 'Verdana', fontWeight: 'bold'}}>
+          Verdana bold
+        </Text>
+      </View>
+    );
   }
 });
 
@@ -104,10 +129,12 @@ var styles = StyleSheet.create({
     flex: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#40a7e3'
+    backgroundColor: '#222222'
   },
   timerStyle: {
-    fontSize: 64,
+    fontFamily: 'Verdana',
+    fontWeight: 'bold',
+    fontSize: 58,
     color: '#ffffff'
   },
   buttonWrapper: { // Green
