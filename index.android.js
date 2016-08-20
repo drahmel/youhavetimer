@@ -44,15 +44,15 @@ var StopWatch = React.createClass({
   laps: function () {
     return this.state.laps.map(function (time, index) {
       return <View style={styles.lap}>
-        <Text style="styles.lapText">
+        <Text style={styles.lapText}>
           Lap #{index + 1}
         </Text>
-        <Text style="styles.lapText">
+        <Text style={styles.lapText}>
           {formatTime(time)}
         </Text>
       </View>
-    })
-  }
+    });
+  },
   startStopButton: function () {
     var style = this.state.running ? styles.stopButton : styles.startButton;
 
@@ -94,7 +94,7 @@ var StopWatch = React.createClass({
         timeElapsed: new Date() - this.state.startTime,
         running: true
       });
-    }, 30);
+    }, 100);
   },
   handleLapPress: function() {
     console.log("Lap press");
@@ -103,8 +103,8 @@ var StopWatch = React.createClass({
     this.setState({
       startTime: new Date(),
       // Use concat because push doesn't adds to array, but concat replaces it
-      laps: this.state.laps.concat([lap]);
-    })
+      laps: this.state.laps.concat([lap])
+    });
   },
   border: function(color) {
     return {
@@ -196,8 +196,7 @@ var styles = StyleSheet.create({
   },
   lapText: {
     fontSize: 30
-  }
-
+  },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover', // or 'stretch'
