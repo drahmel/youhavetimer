@@ -79,7 +79,7 @@ var StopWatch = React.createClass({
         timeElapsed: new Date() - startTime,
         running: true
       });
-    }, 30);
+    }, 500);
   },
   border: function(color) {
     return {
