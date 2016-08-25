@@ -1,0 +1,14 @@
+default_platform :ios
+
+platform :ios do
+  lane :beta do
+    cert
+    sigh(adhoc: true)
+    gym(configuration: "Testing", use_legacy_build_api: true)
+    crashlytics(
+      api_token: "6c54e8bea3f0003e73c5db30dd7b82481a8ffc22",
+      build_secret: "90f377e448278b1bb28c754617602d4932609db6342eacb27faf6e9dac34ecb3",
+      notes: "Automatic iOS Build"
+    )
+  end
+end

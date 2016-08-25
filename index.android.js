@@ -94,7 +94,7 @@ var StopWatch = React.createClass({
         timeElapsed: new Date() - this.state.startTime,
         running: true
       });
-    }, 100);
+    }, 300);
   },
   handleLapPress: function() {
     console.log("Lap press");
