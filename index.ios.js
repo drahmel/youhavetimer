@@ -32,9 +32,8 @@ var StopWatch = React.createClass({
       <View style={[styles.footer, this.border('blue')]}>
         <Image source={require('./assets/gradient1.png')} style={styles.backgroundImage}>
         <Text style={styles.listText}>
-          I am a list of laps
+          List of Laps
         </Text>
-        {this.fontlist()}
       </Image>
       </View>
     </View>
@@ -170,7 +169,9 @@ var styles = StyleSheet.create({
     resizeMode: 'cover', // or 'stretch'
   },
   listText: {
-    backgroundColor: 'rgba(0,0,0,0)'
+    color: 'white',
+    backgroundColor: 'rgba(255,255,255,0)',
+    padding: 20
   }
 })
 
