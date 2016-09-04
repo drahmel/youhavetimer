@@ -1,0 +1,9 @@
+default_platform :ios
+
+platform :ios do
+  lane :beta do
+    cert
+    sigh(adhoc: true)
+    gym(configuration: "Testing", use_legacy_build_api: true)
+  end
+end

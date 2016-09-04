@@ -13,7 +13,9 @@ var StopWatch = React.createClass({
   getInitialState: function () {
     return {
       timeElapsed: null,
-      running: false
+      running: false,
+      startTime: null,
+      laps: []
     }
   },
   render: function () {
@@ -31,13 +33,25 @@ var StopWatch = React.createClass({
       </View>
       <View style={[styles.footer, this.border('blue')]}>
         <Image source={require('./assets/gradient1.png')} style={styles.backgroundImage}>
-        <Text style={styles.listText}>
-          I am a list of laps
-        </Text>
-        {this.fontlist()}
+        <View style={styles.footer}>
+          {this.laps()}
+        </View>
+
       </Image>
       </View>
     </View>
+  },
+  laps: function () {
+    return this.state.laps.map(function (time, index) {
+      return <View style={styles.lap}>
+        <Text style={styles.lapText}>
+          Lap #{index + 1}
+        </Text>
+        <Text style={styles.lapText}>
+          {formatTime(time)}
+        </Text>
+      </View>
+    });
   },
   startStopButton: function () {
     var style = this.state.running ? styles.stopButton : styles.startButton;
@@ -54,11 +68,10 @@ var StopWatch = React.createClass({
     </TouchableHighlight>
   },
   lapButton: function () {
-    var style = this.state.running ? styles.stopButton : styles.startButton;
     return <TouchableHighlight
       underlayColor="gray"
-      onPress={this.handleStartPress}
-      style={[styles.button, style]}
+      onPress={this.handleLapPress}
+      style={[styles.button]}
       >
     <Text style={styles.buttonText}>
     Lap
@@ -73,13 +86,25 @@ var StopWatch = React.createClass({
       this.setState({running:false});
       return;
     }
-    var startTime = new Date();
+
+    this.setState({startTime: new Date()});
+
     this.interval = setInterval(() => {
       this.setState({
-        timeElapsed: new Date() - startTime,
+        timeElapsed: new Date() - this.state.startTime,
         running: true
       });
-    }, 500);
+    }, 300);
+  },
+  handleLapPress: function() {
+    console.log("Lap press");
+    var lap = this.state.timeElapsed;
+
+    this.setState({
+      startTime: new Date(),
+      // Use concat because push doesn't adds to array, but concat replaces it
+      laps: this.state.laps.concat([lap])
+    });
   },
   border: function(color) {
     return {
@@ -164,6 +189,13 @@ var styles = StyleSheet.create({
   stopButton: {
     backgroundColor: '#cc0000',
     borderColor: '#cc0000'
+  },
+  lap: {
+    justifyContent: 'space-around',
+    flexDirection: 'row'
+  },
+  lapText: {
+    fontSize: 30
   },
   backgroundImage: {
     flex: 1,
