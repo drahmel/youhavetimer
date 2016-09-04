@@ -115,7 +115,8 @@ var StopWatch = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'stretch'
+    alignItems: 'stretch',
+    marginTop: 20
   },
   header: { // Yellow
     flex: 1
