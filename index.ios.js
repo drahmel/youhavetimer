@@ -32,9 +32,9 @@ var StopWatch = React.createClass({
         </View>
       </View>
       <View style={[styles.footer, this.border('blue')]}>
-        <View>
+        <Image source={require('./assets/gradient1w.png')} style={styles.backgroundImage}>
           {this.laps()}
-        </View>
+        </Image>
       </View>
     </View>
   },
@@ -149,7 +149,9 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
-    marginTop: 20
+    marginTop: 20,
+    width: null,
+    height: null,
   },
   header: { // Yellow
     flex: 1
@@ -203,6 +205,9 @@ var styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover', // cover or 'stretch'
+    width: null,
+    height: null,
+
   },
   lap: {
     justifyContent: 'space-around',
