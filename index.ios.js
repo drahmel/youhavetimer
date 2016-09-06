@@ -32,19 +32,17 @@ var StopWatch = React.createClass({
         </View>
       </View>
       <View style={[styles.footer, this.border('blue')]}>
-        <Image source={require('./assets/gradient1w.png')} style={styles.backgroundImage}>
-        <View style={styles.footer}>
+        <View>
           {this.laps()}
         </View>
-      </Image>
       </View>
     </View>
   },
   laps: function () {
     return this.state.laps.map(function (time, index) {
-      return <View style={styles.lap}>
+      return <View key={index} style={styles.lap}>
         <Text style={styles.lapText}>
-          Lap #{index + 1}
+          Lap {index + 1}
         </Text>
         <Text style={styles.lapText}>
           {formatTime(time)}
@@ -53,7 +51,12 @@ var StopWatch = React.createClass({
     });
   },
   startStopButton: function () {
-    var style = this.state.running ? styles.stopButton : styles.startButton;
+    var style;
+    if(this.state.running) {
+      style = styles.stopButton;
+    } else {
+      style = styles.startButton;
+    }
 
     return <TouchableHighlight
       underlayColor="gray"
@@ -85,6 +88,8 @@ var StopWatch = React.createClass({
       clearInterval(this.interval);
       this.setState({running:false});
       return;
+    } else {
+      this.setState({laps:[]});
     }
 
     this.setState({startTime: new Date()});
@@ -97,14 +102,16 @@ var StopWatch = React.createClass({
     }, 300);
   },
   handleLapPress: function() {
-    console.log("Lap press");
-    var lap = this.state.timeElapsed;
+    if(this.state.running) {
+      console.log("Lap press");
+      var lap = this.state.timeElapsed;
 
-    this.setState({
-      startTime: new Date(),
-      // Use concat because push doesn't adds to array, but concat replaces it
-      laps: this.state.laps.concat([lap])
-    });
+      this.setState({
+        startTime: new Date(),
+        // Use concat because push adds to array, but concat replaces it
+        laps: this.state.laps.concat([lap])
+      });
+    }
   },
   border: function(color) {
     return {
@@ -150,6 +157,7 @@ var styles = StyleSheet.create({
   },
   footer: { // Blue
     flex: 1,
+    backgroundColor: '#055f99'
   },
   timerWrapper: { // Red
     flex: 5,
