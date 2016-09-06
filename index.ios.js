@@ -157,7 +157,7 @@ var styles = StyleSheet.create({
   },
   footer: { // Blue
     flex: 1,
-    backgroundColor: '#055f99'
+    backgroundColor: '#055f99',
   },
   timerWrapper: { // Red
     flex: 5,
@@ -177,6 +177,7 @@ var styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#055faa',
+    minHeight: 100
   },
   button: {
     borderWidth: 2,
