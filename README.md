@@ -1,5 +1,5 @@
 # youhavetimer
-Timer and stopwatch React-Native app for iOS and Android
+A real (but also example) timer and stopwatch React-Native app for iOS and Android.
 
 ![ScreenShot](https://raw.githubusercontent.com/drahmel/youhavetimer/master/extra/example-screen.png)
 
@@ -38,5 +38,6 @@ It would be great if this app evolved to more than a simple timer app. Some futu
 
 * Modify layout to work on phone and tablet
 * Fix gradient
+* Add Navigator
 
 ## Roadmap
