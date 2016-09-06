@@ -32,7 +32,7 @@ var StopWatch = React.createClass({
         </View>
       </View>
       <View style={[styles.footer, this.border('blue')]}>
-        <Image source={require('./assets/gradient1.png')} style={styles.backgroundImage}>
+        <Image source={require('./assets/gradient1w.png')} style={styles.backgroundImage}>
         <View style={styles.footer}>
           {this.laps()}
         </View>
@@ -67,10 +67,11 @@ var StopWatch = React.createClass({
     </TouchableHighlight>
   },
   lapButton: function () {
+    var style = styles.startButton;
     return <TouchableHighlight
       underlayColor="gray"
       onPress={this.handleLapPress}
-      style={[styles.button]}
+      style={[styles.button, style]}
       >
     <Text style={styles.buttonText}>
     Lap
@@ -148,13 +149,13 @@ var styles = StyleSheet.create({
 
   },
   footer: { // Blue
-    flex: 1
+    flex: 1,
   },
   timerWrapper: { // Red
     flex: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#222222'
+    backgroundColor: '#222222',
   },
   timerStyle: {
     fontFamily: 'Verdana',
@@ -167,7 +168,7 @@ var styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#055faa'
+    backgroundColor: '#055faa',
   },
   button: {
     borderWidth: 2,
@@ -192,7 +193,7 @@ var styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover', // or 'stretch'
+    resizeMode: 'cover', // cover or 'stretch'
   },
   lap: {
     justifyContent: 'space-around',
