@@ -27,7 +27,9 @@ var StopWatch = React.createClass({
         </Text>
         </View>
         <View style={[styles.buttonWrapper,this.border('green')]}>
-          {this.startStopButton()}
+          <Image source={require('./assets/gradient1w.png')} style={styles.buttonBackgroundImage}>
+            {this.startStopButton()}
+          </Image>
           {this.lapButton()}
         </View>
       </View>
@@ -195,19 +197,27 @@ var styles = StyleSheet.create({
     color: '#ffffff'
   },
   startButton: {
-    backgroundColor: '#0088ff',
+    backgroundColor: 'transparent',
     borderColor: '#0088ff'
   },
   stopButton: {
     backgroundColor: '#cc0000',
     borderColor: '#cc0000'
   },
+  buttonBackgroundImage: {
+    flex: 1,
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    resizeMode: 'cover', // cover or 'stretch'
+    width: null,
+    height: null,
+    borderRadius: 40,
+  },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover', // cover or 'stretch'
     width: null,
     height: null,
-
   },
   lap: {
     justifyContent: 'space-around',
