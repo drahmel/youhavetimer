@@ -14,7 +14,7 @@ If you have any contributions, please submit them!
 
 # Running the App
 
-These are standard for react-native but may expand as additional 3rd party packages are added.
+These are standard for react-native but may expand as additional 3rd party packages are added. Any special configuration will be included here. Remember in dev, if you have another react-native app running previously, you will have to close it and run `npm start` to launch the local web server.
 
 ## iOS
 
@@ -36,6 +36,7 @@ It would be great if this app evolved to more than a simple timer app. Some futu
 
 ## To-do
 
+* Add image launch screen script
 * Modify layout to work on phone and tablet
 * Fix gradient
 * Add Navigator
